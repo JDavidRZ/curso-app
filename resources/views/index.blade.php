@@ -11,11 +11,42 @@
 <body>
     <h1>Vista creada en blade y llamada desde el controlador</h1>
     <h2>Lista de videojuegos:</h2>
-    @forelse ($games as $item)
-        <li>{{ $item }}</li>
-    @empty
-    <li>No hay datos</li>
-    @endforelse
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NOMBRE</th>
+                <th>CATEGORIA ID</th>
+                <th>CREADO</th>
+                <th>ESTADO</th>
+            </tr>
+        </thead>
+        <tbody>
+            @forelse ($games as $game )
+            <tr>
+                <td>{{ $game->id }}</td>
+                <td>{{ $game->name }}</td>
+                <td>{{ $game->category_id }}</td>
+                <td>{{ $game->created_at }}</td>
+                <td>
+                    @if ($game->active)
+                    <span style="color: green">Activo</span>
+                    @else
+                    <span style="color: red">Inactivo</span>
+                @endif
+                </td>
+                
+            </tr>
+            @empty
+                <tr>
+                    <td>Sin Videojuegos</td>
+                </tr>
+            @endforelse
+            
+        </tbody>
+    </table>
+
 </body>
 
 </html>

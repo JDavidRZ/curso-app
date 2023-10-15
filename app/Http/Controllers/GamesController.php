@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Videogame;
 
 class GamesController extends Controller
 {
     //
     public function index(){
-        $videogames = array('Fifa 22', 'NBA 22', 'Mario Kart', 'Super Mario');
+        //$videogames = array('Fifa 22', 'NBA 22', 'Mario Kart', 'Super Mario');
+        $videogames = Videogame::all();
         return view('index',['games'=>$videogames]);
     }
     

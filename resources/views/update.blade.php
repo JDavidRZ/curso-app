@@ -9,11 +9,11 @@
 <body>
     <h1>Formulario de creacion de video juegos</h1>
     <p><a href="{{ route('games') }}">Listar todos los juegos</a></p>
-    <form action="{{ route('createVideogame') }}" method="POST">
+    <form action="{{ route('updateVideogame') }}" method="POST">
 
         @csrf
 
-        <input type="text" placeholder="Nombre del videojuego" name="name_game">
+        <input type="text" placeholder="Nombre del videojuego" name="name_game" value="{{ $game->name }}">
         <select name="categoria_id" id="">
             @foreach ($categorias as $categoria)
                 <option value="{{ $categoria->id }}">{{ $categoria->name }}</option>

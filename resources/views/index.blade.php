@@ -10,6 +10,7 @@
 
 <body>
     <h1>Vista creada en blade y llamada desde el controlador</h1>
+    <p><a href="{{ route('gamesCreate') }}">Nuevo videojuego</a></p>
     <h2>Lista de videojuegos:</h2>
     
     <table border="1">
@@ -26,7 +27,7 @@
             @forelse ($games as $game )
             <tr>
                 <td>{{ $game->id }}</td>
-                <td>{{ $game->name }}</td>
+                <td><a href="{{ route('viewGame', $game->id) }}">{{ $game->name }}</a></td>
                 <td>{{ $game->category_id }}</td>
                 <td>{{ $game->created_at }}</td>
                 <td>

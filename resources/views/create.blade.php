@@ -13,11 +13,11 @@
 
         @csrf
 
-        <input type="text" placeholder="Nombre del videojuego" name="name_game">
+        <input type="text" placeholder="Nombre del videojuego" name="name">
         @error('name_game')
             {{ $message }}
         @enderror
-        <select name="categoria_id" id="">
+        <select name="category_id" id="">
             @foreach ($categorias as $categoria)
                 <option value="{{ $categoria->id }}">{{ $categoria->name }}</option>
             @endforeach

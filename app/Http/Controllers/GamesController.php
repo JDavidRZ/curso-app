@@ -36,15 +36,18 @@ class GamesController extends Controller
 
     public function storeVideogame(StoreVideogame $request)
     {
+        //return $request->all();
 
         // $request->validate([
         //     'name_game' => 'required|min:5|max:10'
         // ]);
-        $game = new Videogame;
-        $game->name = $request->name_game;
-        $game->category_id = $request->categoria_id;
-        $game->active = 1;
-        $game->save();
+        // $game = new Videogame;
+        // $game->name = $request->name;
+        // $game->category_id = $request->category_id;
+        // $game->active = 1;
+        // $game->save();
+
+        Videogame::create($request->all());
 
         return redirect()->route('games');
     }

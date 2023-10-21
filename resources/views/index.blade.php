@@ -21,6 +21,7 @@
                 <th>CATEGORIA ID</th>
                 <th>CREADO</th>
                 <th>ESTADO</th>
+                <th>ACCIONES</th>
             </tr>
         </thead>
         <tbody>
@@ -37,6 +38,7 @@
                     <span style="color: red">Inactivo</span>
                 @endif
                 </td>
+                <td><a href="{{  route('deleteGame',$game->id) }}">Eliminar</a></td>
                 
             </tr>
             @empty

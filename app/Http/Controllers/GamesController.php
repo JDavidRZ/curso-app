@@ -72,4 +72,11 @@ class GamesController extends Controller
 
         return redirect()->route('games');
     }
+
+    public function delete($game_id)
+    {
+        $game = Videogame::find($game_id);
+        $game->delete();
+        return redirect()->route('games');
+    }
 }
